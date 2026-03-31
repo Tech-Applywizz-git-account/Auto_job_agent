@@ -1,19 +1,36 @@
 {
-    "overall_session_start": "2026-03-31 14:49:31",
+    "overall_session_start": "2026-03-31 17:01:21",
     "jobs": [
         {
-            "automation_start_time": "2026-03-31 14:49:41",
-            "url": "https://app.greenhouse.io/embed/job_app?token=7205673&gh_src=df2216f21&source=LinkedIn",
-            "link_open_time": "2026-03-31 14:49:43",
-            "extension_icon_clicked_time": null,
-            "scan_application_clicked_time": null,
-            "go_to_panel_clicked_time": null,
+            "automation_start_time": "2026-03-31 17:01:23",
+            "url": "https://boards.greenhouse.io/flexport/jobs/7409140?gh_jid=7409140",
+            "link_open_time": "2026-03-31 17:01:37",
+            "extension_icon_clicked_time": "2026-03-31 17:01:53",
+            "scan_application_clicked_time": "2026-03-31 17:02:00",
+            "go_to_panel_clicked_time": "2026-03-31 17:02:22",
             "panel_closed_time": null,
-            "screenshot_before_time": null,
-            "submit_clicked_time": null,
-            "screenshot_after_time": null,
-            "total_link_processing_time": "0:00:17.179968"
+            "screenshot_before_time": "2026-03-31 17:02:30",
+            "submit_clicked_time": "2026-03-31 17:02:34",
+            "screenshot_after_time": "2026-03-31 17:02:44",
+            "total_link_processing_time": "0:01:23.862604",
+            "status": "human assistance required - captcha needed",
+            "error_message": "Captcha or bot-verification challenge detected on page after submission."
+        },
+        {
+            "automation_start_time": "2026-03-31 17:02:47",
+            "url": "https://job-boards.greenhouse.io/anthropic/jobs/4956672008?gh_src=LinkedIn",
+            "link_open_time": "2026-03-31 17:02:48",
+            "extension_icon_clicked_time": "2026-03-31 17:03:01",
+            "scan_application_clicked_time": "2026-03-31 17:03:08",
+            "go_to_panel_clicked_time": "2026-03-31 17:03:51",
+            "panel_closed_time": null,
+            "screenshot_before_time": "2026-03-31 17:04:00",
+            "submit_clicked_time": "2026-03-31 17:04:03",
+            "screenshot_after_time": "2026-03-31 17:04:14",
+            "total_link_processing_time": "0:01:29.430294",
+            "status": "human assistance required - captcha needed",
+            "error_message": "Captcha or bot-verification challenge detected on page after submission."
         }
     ],
-    "overall_total_time": "0:00:26.692194"
+    "overall_total_time": "0:02:54.835227"
 }

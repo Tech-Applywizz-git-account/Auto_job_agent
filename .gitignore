@@ -105,3 +105,4 @@ Thumbs.db
 desktop.ini
 ehthumbs.db
 $RECYCLE.BIN/
+.gitignore

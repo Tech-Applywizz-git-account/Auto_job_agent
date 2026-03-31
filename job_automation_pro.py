@@ -495,45 +495,56 @@ def run_application_loop():
                                                     print("Waiting 10s for submission to process and checking results...")
                                                     time.sleep(10)
                                                     
-                                                    # POST-SUBMISSION VERIFICATION
-                                                    status_detected = "Processed"
-                                                    error_msg = "None"
+                                                     # POST-SUBMISSION VERIFICATION
+                                                    # ─────────────────────────────────────────────
+                                                    # 3 possible outcomes:
+                                                    #  1. SUCCESS   → page shows a thank-you / confirmation message
+                                                    #  2. CAPTCHA   → page shows a captcha / security challenge
+                                                    #  3. INCOMPLETE→ neither of the above (fields not fully filled)
+                                                    # ─────────────────────────────────────────────
+                                                    status_detected = "human assistance required - fields not filled completely, please complete"
+                                                    error_msg = "Page did not show a submission confirmation after clicking Submit."
                                                     
                                                     try:
-                                                        # Case 1: Success Detection
-                                                        success_keywords = ["Thanks", "Thank", "Thank you", "Submitted", "Success", "Received", "Complete"]
-                                                        page_text = page.content()
+                                                        page_text = page.inner_text("body")
+                                                        
+                                                        # ── Case 1: Successful submission ──────────────
+                                                        # Only flag as success when an explicit confirmation is present
+                                                        success_keywords = [
+                                                            "thank you", "thanks for", "thank you for",
+                                                            "your application has been", "application submitted",
+                                                            "successfully submitted", "we have received",
+                                                            "application received", "you have applied",
+                                                            "you've applied", "submission complete",
+                                                            "application complete"
+                                                        ]
                                                         found_success = any(kw.lower() in page_text.lower() for kw in success_keywords)
                                                         
-                                                        # Case 2: Captcha / Security Detection
-                                                        captcha_keywords = ["Captcha", "Security Code", "Verify", "Human", "Verification"]
+                                                        # ── Case 2: Captcha / Human challenge ──────────
+                                                        # Only flag captcha when an interactive challenge is present
+                                                        captcha_keywords = [
+                                                            "captcha", "i'm not a robot", "i am not a robot",
+                                                            "security code", "verification code",
+                                                            "prove you are human", "prove you're human",
+                                                            "are you a robot", "bot detection",
+                                                            "cloudflare", "recaptcha", "hcaptcha",
+                                                            "enter the characters", "type the characters"
+                                                        ]
                                                         found_captcha = any(kw.lower() in page_text.lower() for kw in captcha_keywords)
                                                         
-                                                        # Case 3: Error Detection
-                                                        error_keywords = ["Error", "Failed", "Invalid", "Required"]
-                                                        found_error = any(kw.lower() in page_text.lower() for kw in error_keywords)
-                                                        
+                                                        # Apply priority: success > captcha > incomplete
                                                         if found_success:
                                                             status_detected = "success"
                                                             error_msg = "None"
-                                                            print("✅ SUCCESS: Confirmation message detected on page.")
+                                                            print("✅ SUCCESS: Confirmation / Thank-you message detected on page.")
                                                         elif found_captcha:
-                                                            status_detected = "human assistance required"
-                                                            error_msg = "Captcha or Security Code detected on page."
+                                                            status_detected = "human assistance required - captcha needed"
+                                                            error_msg = "Captcha or bot-verification challenge detected on page after submission."
                                                             print("⚠️ CAPTCHA DETECTED: Human assistance required.")
-                                                        elif found_error:
-                                                            status_detected = "Failure"
-                                                            error_msg = "Explicit error message detected on page after submission."
-                                                            print("❌ FAILURE: Error message found on page.")
                                                         else:
-                                                            # Fallback: if URL changed, consider it a success if not otherwise errored
-                                                            if url not in page.url:
-                                                                status_detected = "success"
-                                                                print("✅ SUCCESS: URL changed (presumed submission).")
-                                                            else:
-                                                                status_detected = "Failure"
-                                                                error_msg = "Application stuck on form page (no success message or URL change after 10s wait)."
-                                                                print("❌ FAILURE: Page looks unchanged after submission.")
+                                                            status_detected = "human assistance required - fields not filled completely, please complete"
+                                                            error_msg = "No confirmation or captcha found. Form may have incomplete/missing fields."
+                                                            print("⚠️ INCOMPLETE: No success message found. Fields may not be filled correctly.")
                                                     except Exception as check_err:
                                                         print(f"Warning: Results verification failed: {check_err}")
                                                     
