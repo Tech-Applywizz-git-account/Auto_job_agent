@@ -44,13 +44,9 @@ ms-playwright/
 test-results/
 playwright-report/
 
-# Screenshots & debug images captured during runs
-screenshot_before/
-screenshot_after/
+# Screenshots — only ignore standalone debug shots
+# The screenshot_before/ and screenshot_after/ folders (including all images) are tracked
 debug_shot.png
-*.png
-*.jpg
-*.jpeg
 
 # ─────────────────────────────────────────
 # Chrome / Browser Profiles & Automation State
@@ -65,19 +61,23 @@ temp_profile/
 *.log
 output.log
 logs/
+# Keep analytics log
+!analytics.log
 
 # ─────────────────────────────────────────
-# Analytics / Data Files  (runtime state — not source)
+# Analytics / Data Files
 # ─────────────────────────────────────────
-analytics.json
-analytics_test.json
+# Keep analytics files (useful for tracking run history)
+!analytics.json
+!analytics_test.json
 
 # ─────────────────────────────────────────
-# Input Data (may contain sensitive URLs / PII)
+# Input Data
 # ─────────────────────────────────────────
-*.csv
 *.xlsx
 *.xls
+# Allow the main links input file
+!links.csv
 
 # ─────────────────────────────────────────
 # Environment Variables & Secrets

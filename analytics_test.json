@@ -1,0 +1,13 @@
+{
+    "overall_session_start": "2026-03-30 14:39:03",
+    "overall_session_end": "2026-03-30 14:39:03",
+    "overall_total_time": "0:00:00",
+    "jobs": [
+        {
+            "url": "https://example.com/test-job",
+            "status": "success",
+            "retry_count": 0,
+            "total_time_sec": 12.34
+        }
+    ]
+}

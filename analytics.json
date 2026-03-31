@@ -1,0 +1,19 @@
+{
+    "overall_session_start": "2026-03-31 14:49:31",
+    "jobs": [
+        {
+            "automation_start_time": "2026-03-31 14:49:41",
+            "url": "https://app.greenhouse.io/embed/job_app?token=7205673&gh_src=df2216f21&source=LinkedIn",
+            "link_open_time": "2026-03-31 14:49:43",
+            "extension_icon_clicked_time": null,
+            "scan_application_clicked_time": null,
+            "go_to_panel_clicked_time": null,
+            "panel_closed_time": null,
+            "screenshot_before_time": null,
+            "submit_clicked_time": null,
+            "screenshot_after_time": null,
+            "total_link_processing_time": "0:00:17.179968"
+        }
+    ],
+    "overall_total_time": "0:00:26.692194"
+}
