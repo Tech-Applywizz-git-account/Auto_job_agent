@@ -1,0 +1,107 @@
+# ─────────────────────────────────────────
+# Python
+# ─────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+site-packages/
+
+# Unit test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+
+# ─────────────────────────────────────────
+# Virtual Environments
+# ─────────────────────────────────────────
+venv/
+.venv/
+env/
+.env/
+automation_env/
+fast_env/
+premium_env/
+
+# ─────────────────────────────────────────
+# Playwright
+# ─────────────────────────────────────────
+# Playwright browser binaries (downloaded at runtime)
+playwright-browsers/
+ms-playwright/
+test-results/
+playwright-report/
+
+# Screenshots & debug images captured during runs
+screenshot_before/
+screenshot_after/
+debug_shot.png
+*.png
+*.jpg
+*.jpeg
+
+# ─────────────────────────────────────────
+# Chrome / Browser Profiles & Automation State
+# ─────────────────────────────────────────
+automation_profile/
+automation_context/
+temp_profile/
+
+# ─────────────────────────────────────────
+# Logs & Runtime Output
+# ─────────────────────────────────────────
+*.log
+output.log
+logs/
+
+# ─────────────────────────────────────────
+# Analytics / Data Files  (runtime state — not source)
+# ─────────────────────────────────────────
+analytics.json
+analytics_test.json
+
+# ─────────────────────────────────────────
+# Input Data (may contain sensitive URLs / PII)
+# ─────────────────────────────────────────
+*.csv
+*.xlsx
+*.xls
+
+# ─────────────────────────────────────────
+# Environment Variables & Secrets
+# ─────────────────────────────────────────
+.env
+.env.*
+*.env
+secrets.json
+config.local.*
+
+# ─────────────────────────────────────────
+# IDE / Editor
+# ─────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ─────────────────────────────────────────
+# Windows
+# ─────────────────────────────────────────
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
